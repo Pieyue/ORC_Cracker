@@ -1,6 +1,6 @@
 # ORC_Cracker
 This program use RNN model to idnetify captcha.
-#Warning: Don't use to illegal actions!
+# Warning: Don't use to illegal actions!
 # Interpretation
 -l: Login page that you want crack, example: http://www.example.com/login
 -u: Username.
