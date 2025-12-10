@@ -11,16 +11,16 @@ This program using RNN model to idnetify captcha.
 # Dir construction
 ORC_Cracker.py  -main program.  
 fake_header.py  -generate fake HTTP headers.  
-**wordlist**
+**wordlist**  
 small.txt       -a small password dictionary.  
-**captcha**
+**captcha**  
 This dir is used to save captcha temporarily in attack process.  
-**model**
+**model**  
 CNN_RNN_0073.keras  -a model be trained by TensorFlow.  
-**config**
+**config**  
 User_Agent.conf     -random select UA header.  
-**TestServer**
+**TestServer**  
 A flask server, you can exploit it to test cracker program.  
 captcha_creater.py    -using a changed captcha package to generate random captcha.  
-**ModelTrain**
+**ModelTrain**  
 The step of training model.
