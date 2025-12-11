@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>注册</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}" type="text/css">
+    <script>
+        window.onload = function () {
+            document.getElementById("captcha").addEventListener("click", function () {
+                // fetch、then异步操作
+                fetch("/refresh_captcha")   // fetch向目标路由发送请求并返回promise对象
+                    // then处理返回结果，第一个形参是上一个fetch或then返回的结果
+                    // =>箭头函数：定义匿名函数，如res=>res.text()传入res并返回res的处理结果
+                    .then(res => res.text())// 将响应转换为文本
+                    .then(path => {         // 更新属性，带{}的箭头函数不返回值
+                        // 每次加上随机参数避免浏览器缓存
+                        document.getElementById("captcha").src = "/static/" + path + "?t=" + Math.random();
+                    });
+            });
+        }
+    </script>
+    {% if success %}
+        <script>
+        let i = 2;
+        const timer = setInterval(function () {
+            if (i <= 0) {
+                clearInterval(timer);
+                window.location = '/login';
+            } else {
+                let info = document.getElementsByClassName("success")[1];
+                // 避免在jinjia2使用JavaScript`${变量}`字符串模板，否则有可能出bug
+                info.innerHTML = '<p class="success">将在'+i+"秒后跳转登录，若无反应<a href='/login'>点击此处</a></p>";
+                i--;
+            }
+        }, 1000);
+        </script>
+    {% endif %}
+</head>
+<body>
+    <form id="main" action="/register" method="post">
+        {% if error %}
+            <p class="error"> {{ error }} </p>
+        {% elif success %}
+            <p class="success"> {{ success }} </p>
+            <p class="success">将在2秒后跳转登录，若无反应<a href="/login">点击此处</a></p>
+        {% endif %}
+        <img id="head" width="130" height="120" src="{{ url_for('static', filename='img/ico.jpg') }}">
+        <div>
+            <label for="username">用户名</label>
+            <input class="in" type="text" required name="username">
+            <label for="password">密码：</label>
+            <input class="in" type="password" required minlength="6" name="password">
+            <label for="confirm">确认密码：</label>
+            <input class="in" type="password" required name="confirm">
+            <div id="captcha-box">
+                <label id="captcha-lab" for="captcha">验证码：</label>
+                <img id="captcha" src="{{ url_for('static', filename=src) }}">
+            </div>
+            <input class="in" type="text" required name="captcha">
+            <input class="sub" type="submit" value="注册">
+        </div>
+    </form>
+</body>
+</html>

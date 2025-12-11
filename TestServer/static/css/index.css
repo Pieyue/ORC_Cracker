@@ -1,0 +1,46 @@
+* {
+    padding: 0; margin: 0;
+}
+body{
+    background: url("../img/star.jpg") center/cover no-repeat;
+    min-height: 100vh;  /* 设置最小高度为100%的视图高度 */
+    margin: 0;
+}
+#shadow{
+    padding: 1px;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 255), rgba(0, 0, 0, 0));
+    height: 100vh;
+}
+#remind{
+    display: block;
+    color: white;
+    width: 500px;
+    margin: auto;
+    text-align: center;
+    font-size: 30px;
+    margin-top: 30px;
+}
+#logout{
+    display: block;
+    width: 500px;
+    margin: auto;
+    margin-top: 30px;
+    text-align: center;
+    font-size: 30px;
+}
+h1{
+    display: block;
+    width: 1000px;
+    margin: auto;
+    margin-top: 200px;
+    color: white;
+    font-size: 100px;
+    font-weight: normal;
+    font-family: '新宋体';
+    text-align: center;
+}
+a{
+    font-weight: bold;
+    color: deepskyblue;
+    font-family: 仿宋;
+}

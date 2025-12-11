@@ -1,0 +1,100 @@
+body{
+    background: url("../img/sunsystem.png") center/cover no-repeat;
+    min-height: 100vh;
+    margin: 0;
+}
+label,#toregister{
+    display: block;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    margin-left: 100px;
+    padding: 0;
+    font-size: 20px;
+    color: white;
+    font-family: '仿宋';
+}
+form{
+    padding-top: 50px;
+    border-radius: 30px;
+    width: 500px;
+    height: 600px;
+    /*border: dodgerblue solid 3px;*/
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(10px);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /*margin: auto;*/
+}
+#head{
+    display: block;
+    width: 130px;
+    height: 120px;
+    margin: auto;
+    border: orange solid 5px;
+    border-radius: 100%;
+}
+#captcha-box{
+    width: 300px;
+    margin: 10px auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    justify-content: space-between;
+}
+#captcha{
+    width: 100px;
+    height: 30px;
+    cursor: pointer;
+}
+#captcha-lab{
+    margin: 0;
+}
+.error{
+    display: block;
+    font-family: 仿宋;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    color: red;
+    margin-top: 0;
+}
+.success{
+    display: block;
+    font-family: 仿宋;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    color: yellowgreen;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+.in{
+    display: block;
+    float: none;
+    background: rgba(255,255,255,0.3);
+    margin: auto;
+    width: 300px;
+    height: 30px;
+    border: gray solid 1px;
+    border-radius: 10px;
+}
+.in:focus{
+    border: dodgerblue solid 2px;
+    outline: none;
+}
+.sub{
+    display: block;
+    margin: auto;
+    margin-top: 20px;
+    width: 300px;
+    height: 40px;
+    background: dodgerblue;
+    border: none;
+    color: white;
+    border-radius: 10px;
+    font-size: 20px;
+    font-family: '仿宋';
+}

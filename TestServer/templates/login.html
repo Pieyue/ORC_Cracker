@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}" type="text/css">
+    <script>
+        window.onload = function (){
+            document.getElementById('captcha').addEventListener("click", function (){
+                fetch('/refresh_captcha')
+                    .then(res => res.text())
+                    .then(path=> {
+                        document.getElementById('captcha').src = "/static/" + path + "?t=" + Math.random();
+                    });
+                });
+            }
+    </script>
+</head>
+<body>
+    <form id="main" action="/login" method="post">
+        {% if error %}
+            <p class="error">{{ error }}</p>
+        {% endif %}
+        <img  id="head" width="140" height="120" src="{{ url_for('static', filename='img/ico.jpg') }}">
+        <label for="username">用户名：</label>
+        <input class="in" type="text" name="username">
+        <label for="password">密码：</label>
+        <input class="in" type="password" name="password">
+        <div id="captcha-box">
+            <label id="captcha-lab" for="captcha">验证码：</label>
+            <img id="captcha" style="cursor: pointer;" src="{{ url_for('static', filename=src) }}">
+        </div>
+        <input class="in" type="text" required name="captcha">
+        <a style="font-size: 15px; color: skyblue" id="toregister" href="/register">没有账号？立即注册！</a>
+        <input class="sub" type="submit" value="登录">
+    </form>
+</body>
+</html>
